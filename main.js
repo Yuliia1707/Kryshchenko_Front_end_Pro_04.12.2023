@@ -75,13 +75,47 @@
 // showInformation();
 
 
-//--------------------------------------------------------------//
+//---------------------------Task----------------------------------//
 
 
-document.getElementById('textField').addEventListener('focus', function () {
-    document.getElementById('infoDiv').style.display = 'block';
-});
+// document.getElementById('textField').addEventListener('focus', function () {
+//     document.getElementById('infoDiv').style.display = 'block';
+// });
 
-document.getElementById('textField').addEventListener('blur', function () {
-    document.getElementById('infoDiv').style.display = 'none';
-});
+// document.getElementById('textField').addEventListener('blur', function () {
+//     document.getElementById('infoDiv').style.display = 'none';
+// });
+
+
+//---------reworked part----------//
+
+// const textFieldEl = document.getElementById('textField');
+// const infoDivEl = document.getElementById('infoDiv');
+
+// textFieldEl.addEventListener('focus', function () {
+//     infoDivEl.style.display = 'block';
+//     });
+
+// textFieldEl.addEventListener('blur', function () {
+//     infoDivEl.style.display = 'none';
+//     });
+
+//-------------------------------------------------------------//
+
+//---------------------------Table----------------------------------//
+
+
+const table = document.getElementById('myTable');
+
+let count = 1;
+for (let i = 0; i < 10; i++) {
+    const row = table.insertRow();
+    for (let j = 0; j < 10; j++) {
+    const cell = row.insertCell();
+    setTimeout(() => {
+        cell.textContent = count++;
+      }, (i * 10 + j) * 100)
+    }
+}
+
+//-------------------------------------------------------------//
