@@ -114,7 +114,7 @@ picture {
 
 /* -----------------------------Table--------------------------------------------- */
 
-#table-container {
+/* #table-container {
     margin: 100px 0;
 }
 
@@ -134,6 +134,33 @@ table, th, td {
 th, td {
     text-align: center;
     vertical-align: middle;
+} */
+
+/* -------------------------------------------------------------------------- */
+/* -----------------------------Math--------------------------------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 }
 
+div {
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
 /* -------------------------------------------------------------------------- */
