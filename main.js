@@ -1,14 +1,17 @@
+//---------------------------Average----------------------------------//
 
-/* -----------------------------Hours--------------------------------------------- */
-const hours = parseFloat(prompt("Введіть кількість годин:"));
+const number1 = parseFloat(prompt("Введіть перше число:"));
+const number2 = parseFloat(prompt("Введіть друге число:"));
+const number3 = parseFloat(prompt("Введіть третє число:"));
 
-const seconds = hours * 3600;
 
-const resultMessage = `Кількість секунд у ${hours} годинах: ${seconds}`;
+const average = (number1 + number2 + number3) / 3;
 
-alert(resultMessage);
-console.log(resultMessage);
-/* -------------------------------------------------------------------------- */
+
+alert(`Середнє арифметичне: ${average}`);
+console.log(`Середнє арифметичне: ${average}`);
+
+//--------------------------------------------------------------//
 //--------------------------------------------------------------//
 // alert("Enter your name for information");
 // const yourName = prompt("What is your name?");
@@ -304,3 +307,14 @@ console.log(resultMessage);
 //     document.getElementById("result").innerHTML = `<p>${message}</p><p>${result}</p>`;
 // }
 //-------------------------------------------------------------//
+
+/* -----------------------------Hours--------------------------------------------- */
+// const hours = parseFloat(prompt("Введіть кількість годин:"));
+
+// const seconds = hours * 3600;
+
+// const resultMessage = `Кількість секунд у ${hours} годинах: ${seconds}`;
+
+// alert(resultMessage);
+// console.log(resultMessage);
+/* -------------------------------------------------------------------------- */
