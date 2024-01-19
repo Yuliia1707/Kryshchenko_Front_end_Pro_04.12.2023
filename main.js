@@ -1,46 +1,14 @@
 
-//---------------------------Buttons----------------------------------//
-function processStrings() {
-    const userInput1 = prompt("Введіть перший рядок:");
-    const userInput2 = prompt("Введіть другий рядок:");
-    const userInput3 = prompt("Введіть третій рядок:");
+/* -----------------------------Hours--------------------------------------------- */
+const hours = parseFloat(prompt("Введіть кількість годин:"));
 
-    const result = concatenateStrings(userInput1, userInput2, userInput3);
-    displayResult("Рядки у довільному порядку:", result);
-    console.log("Результат у консолі:", result);
-}
+const seconds = hours * 3600;
 
-function concatenateStrings(str1, str2, str3) {
-    const stringsArray = [str1, str2, str3];
-    stringsArray.sort(() => Math.random() - 0.5);
-    return stringsArray.join(" ");
-}
+const resultMessage = `Кількість секунд у ${hours} годинах: ${seconds}`;
 
-function splitNumber() {
-    const userNumber = prompt("Введіть п'ятизначне число:");
-
-    if (/^\d{5}$/.test(userNumber)) {
-        const result = userNumber.split("").join(" ");
-        displayResult("Розбите число:", result);
-        console.log("Результат у консолі:", result);
-    } else {
-        displayResult("Некоректне введення. Будь ласка, введіть п'ятизначне число.");
-    }
-}
-
-
-function displayResult(message, result) {
-    const resultDiv = document.getElementById("result");
-    
-    if (!resultDiv) {
-        const newResultDiv = document.createElement("div");
-        newResultDiv.id = "result";
-        document.body.appendChild(newResultDiv);
-    }
-
-    document.getElementById("result").innerHTML = `<p>${message}</p><p>${result}</p>`;
-}
-
+alert(resultMessage);
+console.log(resultMessage);
+/* -------------------------------------------------------------------------- */
 //--------------------------------------------------------------//
 // alert("Enter your name for information");
 // const yourName = prompt("What is your name?");
@@ -293,4 +261,46 @@ function displayResult(message, result) {
 // window.onload = function () {
 //     displayResults();
 // };
+//-------------------------------------------------------------//
+//---------------------------Buttons----------------------------------//
+// function processStrings() {
+//     const userInput1 = prompt("Введіть перший рядок:");
+//     const userInput2 = prompt("Введіть другий рядок:");
+//     const userInput3 = prompt("Введіть третій рядок:");
+
+//     const result = concatenateStrings(userInput1, userInput2, userInput3);
+//     displayResult("Рядки у довільному порядку:", result);
+//     console.log("Результат у консолі:", result);
+// }
+
+// function concatenateStrings(str1, str2, str3) {
+//     const stringsArray = [str1, str2, str3];
+//     stringsArray.sort(() => Math.random() - 0.5);
+//     return stringsArray.join(" ");
+// }
+
+// function splitNumber() {
+//     const userNumber = prompt("Введіть п'ятизначне число:");
+
+//     if (/^\d{5}$/.test(userNumber)) {
+//         const result = userNumber.split("").join(" ");
+//         displayResult("Розбите число:", result);
+//         console.log("Результат у консолі:", result);
+//     } else {
+//         displayResult("Некоректне введення. Будь ласка, введіть п'ятизначне число.");
+//     }
+// }
+
+
+// function displayResult(message, result) {
+//     const resultDiv = document.getElementById("result");
+    
+//     if (!resultDiv) {
+//         const newResultDiv = document.createElement("div");
+//         newResultDiv.id = "result";
+//         document.body.appendChild(newResultDiv);
+//     }
+
+//     document.getElementById("result").innerHTML = `<p>${message}</p><p>${result}</p>`;
+// }
 //-------------------------------------------------------------//
