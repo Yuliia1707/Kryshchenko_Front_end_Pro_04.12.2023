@@ -1,15 +1,40 @@
-//---------------------------Average----------------------------------//
+//---------------------------Calculator----------------------------------//
 
-const number1 = parseFloat(prompt("Введіть перше число:"));
-const number2 = parseFloat(prompt("Введіть друге число:"));
-const number3 = parseFloat(prompt("Введіть третє число:"));
+const operation = prompt("Введіть операцію (add, sub, mult, div):");
 
+const num1 = parseFloat(prompt("Введіть перше число:"));
 
-const average = (number1 + number2 + number3) / 3;
+const num2 = parseFloat(prompt("Введіть друге число:"));
 
+let result;
+let operationSymbol;
 
-alert(`Середнє арифметичне: ${average}`);
-console.log(`Середнє арифметичне: ${average}`);
+if (operation === "add") {
+    result = num1 + num2;
+    operationSymbol = "+";
+} else if (operation === "sub") {
+    result = num1 - num2;
+    operationSymbol = "-";
+} else if (operation === "mult") {
+    result = num1 * num2;
+    operationSymbol = "*";
+} else if (operation === "div") {
+    if (num2 !== 0) {
+        result = num1 / num2;
+        operationSymbol = "/";
+    } else {
+        alert("Ділення на нуль неможливе.");
+        result = null;
+    }
+} else {
+    alert("Невірна операція. Будь ласка, введіть коректну операцію.");
+    result = null; 
+}
+
+if (result !== null) {
+    console.log(`${num1} ${operationSymbol} ${num2} = ${result}`);
+    alert(`${num1} ${operationSymbol} ${num2} = ${result}`);
+}
 
 //--------------------------------------------------------------//
 //--------------------------------------------------------------//
@@ -318,3 +343,17 @@ console.log(`Середнє арифметичне: ${average}`);
 // alert(resultMessage);
 // console.log(resultMessage);
 /* -------------------------------------------------------------------------- */
+//---------------------------Average----------------------------------//
+
+// const number1 = parseFloat(prompt("Введіть перше число:"));
+// const number2 = parseFloat(prompt("Введіть друге число:"));
+// const number3 = parseFloat(prompt("Введіть третє число:"));
+
+
+// const average = (number1 + number2 + number3) / 3;
+
+
+// alert(`Середнє арифметичне: ${average}`);
+// console.log(`Середнє арифметичне: ${average}`);
+
+//--------------------------------------------------------------//
