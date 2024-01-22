@@ -1,39 +1,19 @@
-//---------------------------Calculator----------------------------------//
+//---------------------------Switch----------------------------------//
+let numOrStr = prompt('Введіть число або рядок');
+console.log(numOrStr);
 
-const operation = prompt("Введіть операцію (add, sub, mult, div):");
-
-const num1 = parseFloat(prompt("Введіть перше число:"));
-
-const num2 = parseFloat(prompt("Введіть друге число:"));
-
-let result;
-let operationSymbol;
-
-if (operation === "add") {
-    result = num1 + num2;
-    operationSymbol = "+";
-} else if (operation === "sub") {
-    result = num1 - num2;
-    operationSymbol = "-";
-} else if (operation === "mult") {
-    result = num1 * num2;
-    operationSymbol = "*";
-} else if (operation === "div") {
-    if (num2 !== 0) {
-        result = num1 / num2;
-        operationSymbol = "/";
-    } else {
-        alert("Ділення на нуль неможливе.");
-        result = null;
-    }
-} else {
-    alert("Невірна операція. Будь ласка, введіть коректну операцію.");
-    result = null; 
-}
-
-if (result !== null) {
-    console.log(`${num1} ${operationSymbol} ${num2} = ${result}`);
-    alert(`${num1} ${operationSymbol} ${num2} = ${result}`);
+switch (true) {
+    case numOrStr === null:
+        console.log('Ви скасували');
+        break;
+    case numOrStr.trim() === '':
+        console.log('Порожній рядок');
+        break;
+    case isNaN(+numOrStr):
+        console.log('Число - не число (NaN)');
+        break;
+    default:
+        console.log('OK!');
 }
 
 //--------------------------------------------------------------//
@@ -355,5 +335,44 @@ if (result !== null) {
 
 // alert(`Середнє арифметичне: ${average}`);
 // console.log(`Середнє арифметичне: ${average}`);
+
+//--------------------------------------------------------------//
+//---------------------------Calculator----------------------------------//
+
+// const operation = prompt("Введіть операцію (add, sub, mult, div):");
+
+// const num1 = parseFloat(prompt("Введіть перше число:"));
+
+// const num2 = parseFloat(prompt("Введіть друге число:"));
+
+// let result;
+// let operationSymbol;
+
+// if (operation === "add") {
+//     result = num1 + num2;
+//     operationSymbol = "+";
+// } else if (operation === "sub") {
+//     result = num1 - num2;
+//     operationSymbol = "-";
+// } else if (operation === "mult") {
+//     result = num1 * num2;
+//     operationSymbol = "*";
+// } else if (operation === "div") {
+//     if (num2 !== 0) {
+//         result = num1 / num2;
+//         operationSymbol = "/";
+//     } else {
+//         alert("Ділення на нуль неможливе.");
+//         result = null;
+//     }
+// } else {
+//     alert("Невірна операція. Будь ласка, введіть коректну операцію.");
+//     result = null; 
+// }
+
+// if (result !== null) {
+//     console.log(`${num1} ${operationSymbol} ${num2} = ${result}`);
+//     alert(`${num1} ${operationSymbol} ${num2} = ${result}`);
+// }
 
 //--------------------------------------------------------------//
