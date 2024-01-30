@@ -47,6 +47,24 @@ picture {
 	display: inline-block;
 }
 
+/* -----------------------------Dollars--------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(146, 146, 196);
+}
+
+#output {
+    margin: 80px 400px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50px;
+    color: #ffffff;
+}
+
+
+/* -------------------------------------------------------------------------- */
 /* -----------------------------Task--------------------------------------------- */
 
 /* body {
