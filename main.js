@@ -1,75 +1,37 @@
-//---------------------------Dollars----------------------------------//
-let outputText = "";
+function searchPost() {
+    const postId = document.getElementById("postId").value;
 
-
-outputText += "1. Числа від 20 до 30 з кроком 0,5:<br>";
-console.log("1. Числа від 20 до 30 з кроком 0,5:");
-for (let i = 20; i <= 30; i += 0.5) {
-    outputText += i + " ";
-    console.log(i);
-}
-
-outputText += "<br><br>"; 
-
-outputText += "2. Розрахунок вартості доларів у гривнях:<br>";
-console.log("2. Розрахунок вартості доларів у гривнях:");
-for (let i = 10; i <= 100; i += 10) {
-    let costInHryvnia = i * 27;
-    outputText += i + " доларів коштують " + i * 27 + " гривень<br>";
-    console.log(i + " доларів коштують " + costInHryvnia + " гривень");
-}
-
-outputText += "<br>"; 
-
-outputText += "3. Цілі числа, квадрат яких не перевищує введеного числа:<br>";
-console.log("3. Цілі числа, квадрат яких не перевищує введеного числа:");
-let n = parseInt(prompt("Введіть ціле число:"));
-for (let i = 1; i <= 100; i++) {
-    if (i * i <= n) {
-        outputText += i + " ";
-        console.log(i);
-    } else {
-        break;
+    if (postId < 1 || postId > 100) {
+        alert("Будь ласка, введіть коректне ID від 1 до 100.");
+        return;
     }
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        .then(response => response.json())
+        .then(post => {
+            const postContainer = document.getElementById("postContainer");
+            postContainer.innerHTML = `
+                <h2>Пост #${post.id}</h2>
+                <h3>${post.title}</h3>
+                <p>${post.body}</p>
+                <button onclick="fetchComments(${post.id})">Отримати коментарі</button>
+            `;
+        })
+        .catch(error => {
+            console.error('Помилка запиту:', error);
+        });
 }
-outputText += "<br><br>";
 
-outputText += "4. Перевірка числа на простоту:<br>";
-console.log("4. Перевірка числа на простоту:");
-let num = parseInt(prompt("Введіть ціле число для перевірки на простоту:"));
-let isPrime = true;
-if (num <= 1) {
-    isPrime = false;
-} else {
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) {
-            isPrime = false;
-            break;
-        }
-    }
+function fetchComments(postId) {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+        .then(response => response.json())
+        .then(comments => {
+            alert(`Коментарі до поста #${postId}:\n\n${JSON.stringify(comments, null, 2)}`);
+        })
+        .catch(error => {
+            console.error('Помилка запиту:', error);
+        });
 }
-outputText += "Число " + num + (isPrime ? " є простим" : " не є простим") + "<br><br>";
-console.log("Число " + num + (isPrime ? " є простим" : " не є простим"));
-
-outputText += "5. Перевірка можливості отримати число зведенням 3 у ступінь:<br>";
-console.log("5. Перевірка можливості отримати число зведенням 3 у ступінь:");
-let numToCheck = parseInt(prompt("Введіть ще раз будь-яке число для перевірки:"));
-let isPowerOfThree = false;
-if (numToCheck > 0) {
-    while (numToCheck !== 1) {
-        if (numToCheck % 3 !== 0) {
-            break;
-        }
-        numToCheck /= 3;
-    }
-    isPowerOfThree = numToCheck === 1;
-}
-outputText += "Число " + numToCheck + (isPowerOfThree ? " можна отримати шляхом зведення числа 3 у деякий ступінь" : " не можна отримати шляхом зведення числа 3 у деякий ступінь") + "<br><br>";
-console.log("Число " + numToCheck + (isPowerOfThree ? " можна отримати шляхом зведення числа 3 у деякий ступінь" : " не можна отримати шляхом зведення числа 3 у деякий ступінь"));
-
-document.getElementById("output").innerHTML = outputText;
-
-//--------------------------------------------------------------//
 //--------------------------------------------------------------//
 // alert("Enter your name for information");
 // const yourName = prompt("What is your name?");
@@ -446,5 +408,77 @@ document.getElementById("output").innerHTML = outputText;
 //     default:
 //         console.log('OK!');
 // }
+
+//--------------------------------------------------------------//
+//---------------------------Dollars----------------------------------//
+// let outputText = "";
+
+
+// outputText += "1. Числа від 20 до 30 з кроком 0,5:<br>";
+// console.log("1. Числа від 20 до 30 з кроком 0,5:");
+// for (let i = 20; i <= 30; i += 0.5) {
+//     outputText += i + " ";
+//     console.log(i);
+// }
+
+// outputText += "<br><br>"; 
+
+// outputText += "2. Розрахунок вартості доларів у гривнях:<br>";
+// console.log("2. Розрахунок вартості доларів у гривнях:");
+// for (let i = 10; i <= 100; i += 10) {
+//     let costInHryvnia = i * 27;
+//     outputText += i + " доларів коштують " + i * 27 + " гривень<br>";
+//     console.log(i + " доларів коштують " + costInHryvnia + " гривень");
+// }
+
+// outputText += "<br>"; 
+
+// outputText += "3. Цілі числа, квадрат яких не перевищує введеного числа:<br>";
+// console.log("3. Цілі числа, квадрат яких не перевищує введеного числа:");
+// let n = parseInt(prompt("Введіть ціле число:"));
+// for (let i = 1; i <= 100; i++) {
+//     if (i * i <= n) {
+//         outputText += i + " ";
+//         console.log(i);
+//     } else {
+//         break;
+//     }
+// }
+// outputText += "<br><br>";
+
+// outputText += "4. Перевірка числа на простоту:<br>";
+// console.log("4. Перевірка числа на простоту:");
+// let num = parseInt(prompt("Введіть ціле число для перевірки на простоту:"));
+// let isPrime = true;
+// if (num <= 1) {
+//     isPrime = false;
+// } else {
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
+//         if (num % i === 0) {
+//             isPrime = false;
+//             break;
+//         }
+//     }
+// }
+// outputText += "Число " + num + (isPrime ? " є простим" : " не є простим") + "<br><br>";
+// console.log("Число " + num + (isPrime ? " є простим" : " не є простим"));
+
+// outputText += "5. Перевірка можливості отримати число зведенням 3 у ступінь:<br>";
+// console.log("5. Перевірка можливості отримати число зведенням 3 у ступінь:");
+// let numToCheck = parseInt(prompt("Введіть ще раз будь-яке число для перевірки:"));
+// let isPowerOfThree = false;
+// if (numToCheck > 0) {
+//     while (numToCheck !== 1) {
+//         if (numToCheck % 3 !== 0) {
+//             break;
+//         }
+//         numToCheck /= 3;
+//     }
+//     isPowerOfThree = numToCheck === 1;
+// }
+// outputText += "Число " + numToCheck + (isPowerOfThree ? " можна отримати шляхом зведення числа 3 у деякий ступінь" : " не можна отримати шляхом зведення числа 3 у деякий ступінь") + "<br><br>";
+// console.log("Число " + numToCheck + (isPowerOfThree ? " можна отримати шляхом зведення числа 3 у деякий ступінь" : " не можна отримати шляхом зведення числа 3 у деякий ступінь"));
+
+// document.getElementById("output").innerHTML = outputText;
 
 //--------------------------------------------------------------//

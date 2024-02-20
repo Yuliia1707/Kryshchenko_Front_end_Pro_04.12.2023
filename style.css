@@ -46,25 +46,47 @@ html, body {
 picture {
 	display: inline-block;
 }
-
-/* -----------------------------Dollars--------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(146, 146, 196);
-}
-
-#output {
-    margin: 80px 400px;
-    padding: 20px;
-    border: 1px solid #ffffff;
+    margin: 20px;
     text-align: center;
-    line-height: 24px;
-    border-radius: 50px;
-    color: #ffffff;
+}
+label {
+    font-weight: bold;
+}
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-right: 10px;
+}
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 18px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#postContainer {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: start;
+}
+.post {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.post h2 {
+    margin-top: 0;
 }
 
-
-/* -------------------------------------------------------------------------- */
 /* -----------------------------Task--------------------------------------------- */
 
 /* body {
@@ -220,5 +242,23 @@ button:hover {
     color: rgb(77, 59, 34);
     line-height: 32px;
 } */
+
+/* -------------------------------------------------------------------------- */
+/* -----------------------------Dollars--------------------------------------------- */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(146, 146, 196);
+}
+
+#output {
+    margin: 80px 400px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50px;
+    color: #ffffff;
+} */
+
 
 /* -------------------------------------------------------------------------- */
