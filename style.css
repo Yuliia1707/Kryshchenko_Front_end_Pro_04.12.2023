@@ -46,8 +46,22 @@ html, body {
 picture {
 	display: inline-block;
 }
-/* ------------------------------Massif-------------------------------------------- */
+/* ------------------------------Massif2-------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20vh 36%;
+    background-color: rgb(111, 98, 79);
+}
 
+ul {
+    padding: 0;
+    line-height: 30px;
+    font-size: 16px;
+    color: white;
+}
+li {
+    margin-bottom: 10px;
+}
 
 /* -----------------------------Task--------------------------------------------- */
 

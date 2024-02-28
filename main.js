@@ -1,34 +1,62 @@
 
-//---------------------------Massif----------------------------------//
-let array = [];
-let length = parseInt(prompt("Введите длину массива:"));
+//---------------------------Massif2----------------------------------//
+const array = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
 
-if (isNaN(length) || length <= 0) {
-    alert("Пожалуйста, введите корректную длину массива.");
-} else {
-    for (let i = 0; i < length; i++) {
-        let userInput = prompt(`Введите элемент ${i + 1}:`);
-        if (userInput.trim() === "") {
-            alert("Вы ввели пустое значение");
-            i--; 
-        } else {
-            array.push(userInput.trim());
+    let [sumOfPositives, countOfPositives, minElement, minIndex, maxElement, maxIndex, countOfNegatives, countOfOddPositives, countOfEvenPositives, sumOfEvenPositives, sumOfOddPositives, productOfPositives] = [0, 0, array[0], 0, array[0], 0, 0, 0, 0, 0, 0, 1];
+
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+        if (element > 0) {
+            sumOfPositives += element;
+            countOfPositives++;
+
+            if (element % 2 === 0) {
+                countOfEvenPositives++;
+                sumOfEvenPositives += element;
+            } else {
+                countOfOddPositives++;
+                sumOfOddPositives += element;
+            }
+
+            productOfPositives *= element;
+        }
+
+        if (element < minElement) {
+            minElement = element;
+            minIndex = i;
+        }
+
+        if (element > maxElement) {
+            maxElement = element;
+            maxIndex = i;
+        }
+
+        if (element < 0) {
+            countOfNegatives++;
         }
     }
 
-    console.log("Исходный массив:", array.join(", "));
-    document.write("<strong>Исходный массив:</strong> " + array.join(", ") + "<br>");
 
-    array.sort();
+    const resultsArray = [
+        `Сумма положительных элементов: ${sumOfPositives}`,
+        `Количество положительных элементов: ${countOfPositives}`,
+        `Минимальный элемент: ${minElement}, порядковый номер: ${minIndex}`,
+        `Максимальный элемент: ${maxElement}, порядковый номер: ${maxIndex}`,
+        `Количество негативных элементов: ${countOfNegatives}`,
+        `Количество непарных положительных элементов: ${countOfOddPositives}`,
+        `Количество парных положительных элементов: ${countOfEvenPositives}`,
+        `Сумма парных положительных элементов: ${sumOfEvenPositives}`,
+        `Сумма непарных положительных элементов: ${sumOfOddPositives}`,
+        `Произведение положительных элементов: ${productOfPositives}`
+    ];
 
-    console.log("Отсортированный массив:", array.join(", "));
-    document.write("<strong>Отсортированный массив:</strong> " + array.join(", ") + "<br>");
+    const resultsList = document.getElementById("results");
+    resultsList.innerHTML = resultsArray.map(result => `<li>${result}</li>`).join('');
 
-    array.splice(1, 3);
+    console.log("Результаты выполнения JavaScript Homework:");
+    console.log(resultsArray);
 
-    console.log("Массив после удаления элементов с 2 по 4:", array.join(", "));
-    document.write("<strong>Массив после удаления элементов с 2 по 4:</strong> " + array.join(", ") + "<br>");
-}
 
 //--------------------------------------------------------------//
 //--------------------------------------------------------------//
@@ -517,4 +545,36 @@ if (isNaN(length) || length <= 0) {
 //             console.error('Помилка запиту:', error);
 //         });
 // }
+//--------------------------------------------------------------//
+//---------------------------Massif----------------------------------//
+// let array = [];
+// let length = parseInt(prompt("Введите длину массива:"));
+
+// if (isNaN(length) || length <= 0) {
+//     alert("Пожалуйста, введите корректную длину массива.");
+// } else {
+//     for (let i = 0; i < length; i++) {
+//         let userInput = prompt(`Введите элемент ${i + 1}:`);
+//         if (userInput.trim() === "") {
+//             alert("Вы ввели пустое значение");
+//             i--; 
+//         } else {
+//             array.push(userInput.trim());
+//         }
+//     }
+
+//     console.log("Исходный массив:", array.join(", "));
+//     document.write("<strong>Исходный массив:</strong> " + array.join(", ") + "<br>");
+
+//     array.sort();
+
+//     console.log("Отсортированный массив:", array.join(", "));
+//     document.write("<strong>Отсортированный массив:</strong> " + array.join(", ") + "<br>");
+
+//     array.splice(1, 3);
+
+//     console.log("Массив после удаления элементов с 2 по 4:", array.join(", "));
+//     document.write("<strong>Массив после удаления элементов с 2 по 4:</strong> " + array.join(", ") + "<br>");
+// }
+
 //--------------------------------------------------------------//
