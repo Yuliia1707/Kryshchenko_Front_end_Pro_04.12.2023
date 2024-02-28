@@ -1,37 +1,36 @@
-function searchPost() {
-    const postId = document.getElementById("postId").value;
 
-    if (postId < 1 || postId > 100) {
-        alert("Будь ласка, введіть коректне ID від 1 до 100.");
-        return;
+//---------------------------Massif----------------------------------//
+let array = [];
+let length = parseInt(prompt("Введите длину массива:"));
+
+if (isNaN(length) || length <= 0) {
+    alert("Пожалуйста, введите корректную длину массива.");
+} else {
+    for (let i = 0; i < length; i++) {
+        let userInput = prompt(`Введите элемент ${i + 1}:`);
+        if (userInput.trim() === "") {
+            alert("Вы ввели пустое значение");
+            i--; 
+        } else {
+            array.push(userInput.trim());
+        }
     }
 
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then(response => response.json())
-        .then(post => {
-            const postContainer = document.getElementById("postContainer");
-            postContainer.innerHTML = `
-                <h2>Пост #${post.id}</h2>
-                <h3>${post.title}</h3>
-                <p>${post.body}</p>
-                <button onclick="fetchComments(${post.id})">Отримати коментарі</button>
-            `;
-        })
-        .catch(error => {
-            console.error('Помилка запиту:', error);
-        });
+    console.log("Исходный массив:", array.join(", "));
+    document.write("<strong>Исходный массив:</strong> " + array.join(", ") + "<br>");
+
+    array.sort();
+
+    console.log("Отсортированный массив:", array.join(", "));
+    document.write("<strong>Отсортированный массив:</strong> " + array.join(", ") + "<br>");
+
+    array.splice(1, 3);
+
+    console.log("Массив после удаления элементов с 2 по 4:", array.join(", "));
+    document.write("<strong>Массив после удаления элементов с 2 по 4:</strong> " + array.join(", ") + "<br>");
 }
 
-function fetchComments(postId) {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-        .then(response => response.json())
-        .then(comments => {
-            alert(`Коментарі до поста #${postId}:\n\n${JSON.stringify(comments, null, 2)}`);
-        })
-        .catch(error => {
-            console.error('Помилка запиту:', error);
-        });
-}
+//--------------------------------------------------------------//
 //--------------------------------------------------------------//
 // alert("Enter your name for information");
 // const yourName = prompt("What is your name?");
@@ -481,4 +480,41 @@ function fetchComments(postId) {
 
 // document.getElementById("output").innerHTML = outputText;
 
+//--------------------------------------------------------------//
+
+//---------------------------Promise----------------------------------//
+// function searchPost() {
+//     const postId = document.getElementById("postId").value;
+
+//     if (postId < 1 || postId > 100) {
+//         alert("Будь ласка, введіть коректне ID від 1 до 100.");
+//         return;
+//     }
+
+//     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+//         .then(response => response.json())
+//         .then(post => {
+//             const postContainer = document.getElementById("postContainer");
+//             postContainer.innerHTML = `
+//                 <h2>Пост #${post.id}</h2>
+//                 <h3>${post.title}</h3>
+//                 <p>${post.body}</p>
+//                 <button onclick="fetchComments(${post.id})">Отримати коментарі</button>
+//             `;
+//         })
+//         .catch(error => {
+//             console.error('Помилка запиту:', error);
+//         });
+// }
+
+// function fetchComments(postId) {
+//     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+//         .then(response => response.json())
+//         .then(comments => {
+//             alert(`Коментарі до поста #${postId}:\n\n${JSON.stringify(comments, null, 2)}`);
+//         })
+//         .catch(error => {
+//             console.error('Помилка запиту:', error);
+//         });
+// }
 //--------------------------------------------------------------//

@@ -46,46 +46,8 @@ html, body {
 picture {
 	display: inline-block;
 }
-/* -------------------------------------------------------------------------- */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    text-align: center;
-}
-label {
-    font-weight: bold;
-}
-input[type="number"] {
-    width: 100px;
-    padding: 5px;
-    margin-right: 10px;
-}
-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 18px;
-}
-button:hover {
-    background-color: #0056b3;
-}
-#postContainer {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 28px;
-    text-align: start;
-}
-.post {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-.post h2 {
-    margin-top: 0;
-}
+/* ------------------------------Massif-------------------------------------------- */
+
 
 /* -----------------------------Task--------------------------------------------- */
 
@@ -260,5 +222,47 @@ button:hover {
     color: #ffffff;
 } */
 
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------Promise-------------------------------------------- */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+label {
+    font-weight: bold;
+}
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-right: 10px;
+}
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 18px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#postContainer {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: start;
+}
+.post {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.post h2 {
+    margin-top: 0;
+} */
 
 /* -------------------------------------------------------------------------- */
