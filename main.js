@@ -1,61 +1,22 @@
 
-//---------------------------Massif2----------------------------------//
-const array = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
+//---------------------------User accounts----------------------------------//
+let users = [{"index":0,"isActive":true,"balance":"$2,226.60","name":"Eugenia Sawyer","gender":"female","phone":"+1 (840) 583-3207","address":"949 John Street, Rose, Puerto Rico, 1857"},{"index":1,"isActive":true,"balance":"$2,613.77","name":"Pauline Gallegos","gender":"female","phone":"+1 (985) 593-3328","address":"328 Greenpoint Avenue, Torboy, North Dakota, 6857"},{"index":2,"isActive":false,"balance":"$3,976.41","name":"Middleton Chaney","gender":"male","phone":"+1 (995) 591-2478","address":"807 Fleet Walk, Brutus, Arkansas, 9783"},{"index":3,"isActive":true,"balance":"$1,934.58","name":"Burns Poole","gender":"male","phone":"+1 (885) 559-3422","address":"730 Seba Avenue, Osage, Alabama, 6290"},{"index":4,"isActive":true,"balance":"$3,261.65","name":"Mcfadden Horne","gender":"male","phone":"+1 (942) 565-3988","address":"120 Scholes Street, Kirk, Michigan, 1018"},{"index":5,"isActive":false,"balance":"$1,790.56","name":"Suzette Lewis","gender":"female","phone":"+1 (837) 586-3283","address":"314 Dunne Place, Bawcomville, Guam, 9053"}];
 
-    let [sumOfPositives, countOfPositives, minElement, minIndex, maxElement, maxIndex, countOfNegatives, countOfOddPositives, countOfEvenPositives, sumOfEvenPositives, sumOfOddPositives, productOfPositives] = [0, 0, array[0], 0, array[0], 0, 0, 0, 0, 0, 0, 1];
+let phoneNumbersWithBalancesAbove2000 = users
+    .filter(user => parseFloat(user.balance.replace(/[$,]/g, '')) > 2000)
+    .map(user => user.phone);
 
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
+let totalBalance = users
+    .reduce((sum, user) => sum + parseFloat(user.balance.replace(/[$,]/g, '')), 0);
 
-        if (element > 0) {
-            sumOfPositives += element;
-            countOfPositives++;
+let resultContainer = document.createElement('div');
+resultContainer.innerHTML = `<p>Телефонні номери користувачів з балансом більше 2000:</p><ul>${phoneNumbersWithBalancesAbove2000.map(phone => `<li>${phone}</li>`).join('')}</ul><p>Загальний баланс користувачів: ${totalBalance}</p>`;
+document.body.appendChild(resultContainer);
 
-            if (element % 2 === 0) {
-                countOfEvenPositives++;
-                sumOfEvenPositives += element;
-            } else {
-                countOfOddPositives++;
-                sumOfOddPositives += element;
-            }
+console.log("Телефонні номери користувачів з балансом більше 2000:");
+phoneNumbersWithBalancesAbove2000.forEach(phoneNumber => console.log(phoneNumber));
 
-            productOfPositives *= element;
-        }
-
-        if (element < minElement) {
-            minElement = element;
-            minIndex = i;
-        }
-
-        if (element > maxElement) {
-            maxElement = element;
-            maxIndex = i;
-        }
-
-        if (element < 0) {
-            countOfNegatives++;
-        }
-    }
-
-
-    const resultsArray = [
-        `Сумма положительных элементов: ${sumOfPositives}`,
-        `Количество положительных элементов: ${countOfPositives}`,
-        `Минимальный элемент: ${minElement}, порядковый номер: ${minIndex}`,
-        `Максимальный элемент: ${maxElement}, порядковый номер: ${maxIndex}`,
-        `Количество негативных элементов: ${countOfNegatives}`,
-        `Количество непарных положительных элементов: ${countOfOddPositives}`,
-        `Количество парных положительных элементов: ${countOfEvenPositives}`,
-        `Сумма парных положительных элементов: ${sumOfEvenPositives}`,
-        `Сумма непарных положительных элементов: ${sumOfOddPositives}`,
-        `Произведение положительных элементов: ${productOfPositives}`
-    ];
-
-    const resultsList = document.getElementById("results");
-    resultsList.innerHTML = resultsArray.map(result => `<li>${result}</li>`).join('');
-
-    console.log("Результаты выполнения JavaScript Homework:");
-    console.log(resultsArray);
+console.log("Загальний баланс користувачів:", totalBalance);
 
 
 //--------------------------------------------------------------//
@@ -576,5 +537,65 @@ const array = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -6
 //     console.log("Массив после удаления элементов с 2 по 4:", array.join(", "));
 //     document.write("<strong>Массив после удаления элементов с 2 по 4:</strong> " + array.join(", ") + "<br>");
 // }
+
+//--------------------------------------------------------------//
+//---------------------------Massif2----------------------------------//
+// const array = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
+
+//     let [sumOfPositives, countOfPositives, minElement, minIndex, maxElement, maxIndex, countOfNegatives, countOfOddPositives, countOfEvenPositives, sumOfEvenPositives, sumOfOddPositives, productOfPositives] = [0, 0, array[0], 0, array[0], 0, 0, 0, 0, 0, 0, 1];
+
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+
+//         if (element > 0) {
+//             sumOfPositives += element;
+//             countOfPositives++;
+
+//             if (element % 2 === 0) {
+//                 countOfEvenPositives++;
+//                 sumOfEvenPositives += element;
+//             } else {
+//                 countOfOddPositives++;
+//                 sumOfOddPositives += element;
+//             }
+
+//             productOfPositives *= element;
+//         }
+
+//         if (element < minElement) {
+//             minElement = element;
+//             minIndex = i;
+//         }
+
+//         if (element > maxElement) {
+//             maxElement = element;
+//             maxIndex = i;
+//         }
+
+//         if (element < 0) {
+//             countOfNegatives++;
+//         }
+//     }
+
+
+//     const resultsArray = [
+//         `Сумма положительных элементов: ${sumOfPositives}`,
+//         `Количество положительных элементов: ${countOfPositives}`,
+//         `Минимальный элемент: ${minElement}, порядковый номер: ${minIndex}`,
+//         `Максимальный элемент: ${maxElement}, порядковый номер: ${maxIndex}`,
+//         `Количество негативных элементов: ${countOfNegatives}`,
+//         `Количество непарных положительных элементов: ${countOfOddPositives}`,
+//         `Количество парных положительных элементов: ${countOfEvenPositives}`,
+//         `Сумма парных положительных элементов: ${sumOfEvenPositives}`,
+//         `Сумма непарных положительных элементов: ${sumOfOddPositives}`,
+//         `Произведение положительных элементов: ${productOfPositives}`
+//     ];
+
+//     const resultsList = document.getElementById("results");
+//     resultsList.innerHTML = resultsArray.map(result => `<li>${result}</li>`).join('');
+
+//     console.log("Результаты выполнения JavaScript Homework:");
+//     console.log(resultsArray);
+
 
 //--------------------------------------------------------------//
