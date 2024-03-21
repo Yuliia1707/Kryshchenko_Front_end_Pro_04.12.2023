@@ -1,34 +1,82 @@
 
-//---------------------------Remove/Generate----------------------------------//
-function removeElement(array, item) {
-    const index = array.indexOf(item);
-    if (index !== -1) {
-        array.splice(index, 1);
+//---------------------------Functions----------------------------------//
+function calculateAverage(arr) {
+    let sum = 0;
+    let count = 0;
+    
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === 'number') {
+            sum += arr[i];
+            count++;
+        }
+    }
+    
+    if (count === 0) {
+        return 0; // Якщо немає числових елементів у масиві, повертаємо 0
+    } else {
+        return sum / count;
     }
 }
 
-function generateKey(length, characters) {
-    let result = '';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * charactersLength);
-        result += characters.charAt(randomIndex);
+function doMath(x, znak, y) {
+    switch (znak) {
+        case '+':
+            return x + y;
+        case '-':
+            return x - y;
+        case '*':
+            return x * y;
+        case '/':
+            return x / y;
+        case '%':
+            return x % y;
+        case '^':
+            return Math.pow(x, y);
+        default:
+            return "Невірний знак операції";
     }
+}
+
+function fillArrayFromUser() {
+    const rows = parseInt(prompt("Введіть кількість рядків:"));
+    const cols = parseInt(prompt("Введіть кількість стовпчиків:"));
+    const result = [];
+    
+    for (let i = 0; i < rows; i++) {
+        const innerArray = [];
+        for (let j = 0; j < cols; j++) {
+            innerArray.push(prompt(`Введіть значення для елемента [${i}][${j}]:`));
+        }
+        result.push(innerArray);
+    }
+    
     return result;
 }
 
-const array = [1, 2, 3, 4, 5, 6, 7];
-const itemToRemove = 5;
-removeElement(array, itemToRemove);
-const removeResultElement = document.getElementById('removeResult');
-removeResultElement.innerText = 'Масив після видалення елементу ' + itemToRemove + ': ' + array;
-console.log('Масив після видалення елементу ' + itemToRemove + ':', array);
+function removeChars(str, charsToRemove) {
+    let result = str;
+    
+    for (let i = 0; i < charsToRemove.length; i++) {
+        result = result.split(charsToRemove[i]).join('');
+    }
+    
+    return result;
+}
 
-const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-const key = generateKey(16, characters);
-const generateResultElement = document.getElementById('generateResult');
-generateResultElement.innerText = 'Згенерований ключ: ' + key;
-console.log('Згенерований ключ:', key);
+// Використання функцій:
+const array = [1, 2, 'a', 3, 'b', 4];
+document.write("Середнє арифметичне числових елементів масиву: " + calculateAverage(array) + "<br>");
+
+const x = parseFloat(prompt("Введіть перше число:"));
+const y = parseFloat(prompt("Введіть друге число:"));
+const znak = prompt("Введіть математичний знак (+, -, *, /, %, ^):");
+document.write("Результат математичної дії: " + doMath(x, znak, y) + "<br>");
+
+document.write("Заповнений двовимірний масив: " + fillArrayFromUser() + "<br>");
+
+const str = prompt("Введіть рядок:");
+const charsToRemove = prompt("Введіть символи для видалення через кому (наприклад, l,d):").split(',');
+document.write("Рядок після видалення символів: " + removeChars(str, charsToRemove));
 
 //--------------------------------------------------------------//
 //--------------------------------------------------------------//
@@ -630,5 +678,38 @@ console.log('Згенерований ключ:', key);
 
 // console.log("Загальний баланс користувачів:", totalBalance);
 
+
+//--------------------------------------------------------------//
+
+//---------------------------Remove/Generate----------------------------------//
+// function removeElement(array, item) {
+//     const index = array.indexOf(item);
+//     if (index !== -1) {
+//         array.splice(index, 1);
+//     }
+// }
+
+// function generateKey(length, characters) {
+//     let result = '';
+//     const charactersLength = characters.length;
+//     for (let i = 0; i < length; i++) {
+//         const randomIndex = Math.floor(Math.random() * charactersLength);
+//         result += characters.charAt(randomIndex);
+//     }
+//     return result;
+// }
+
+// const array = [1, 2, 3, 4, 5, 6, 7];
+// const itemToRemove = 5;
+// removeElement(array, itemToRemove);
+// const removeResultElement = document.getElementById('removeResult');
+// removeResultElement.innerText = 'Масив після видалення елементу ' + itemToRemove + ': ' + array;
+// console.log('Масив після видалення елементу ' + itemToRemove + ':', array);
+
+// const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+// const key = generateKey(16, characters);
+// const generateResultElement = document.getElementById('generateResult');
+// generateResultElement.innerText = 'Згенерований ключ: ' + key;
+// console.log('Згенерований ключ:', key);
 
 //--------------------------------------------------------------//
